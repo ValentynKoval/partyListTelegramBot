@@ -33,7 +33,10 @@ public class Customer {
         } else if (username == null) {
             return firstName + " " + lastName +
                     "хочет предложить:\n" + offersText;
-        } else {
+        } else if (lastName == null && username == null) {
+            return firstName +
+                    "хочет предложить:\n" + offersText;
+        }else {
             return firstName + " " + lastName + " (@" + username + ") " +
                     "хочет предложить:\n" + offersText;
         }

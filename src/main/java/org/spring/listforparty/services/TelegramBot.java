@@ -14,6 +14,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -22,6 +23,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private final BotConfig botConfig;
     private final CustomerService customerService;
     private final OfferService offerService;
+    private final ProductService productService;
 
     @Override
     public String getBotToken() {
@@ -46,6 +48,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case "/showWishes":
                     showWishes(chatId);
                     break;
+                case "/showProductsList":
+                    sendMessage(chatId, "--------СПИСОК--------\n" + productService.findAll());
+                    break;
                 default:
                     if (messageText.toLowerCase().startsWith("хочу")) {
                         messageText = messageText.substring(5);
@@ -64,6 +69,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                             customerService.saveNewCustomer(customerDto);
                         }
                         sendMessage(chatId, "Ваше пожелание было добавлено");
+                    } else if (messageText.toLowerCase().startsWith("список")) {
+                        productService.saveNewProducts(messageText);
+                        sendMessage(chatId, "Список был сохранен");
                     } else {
                         sendMessage(chatId, "Команда не поддерживаеться");
                     }
