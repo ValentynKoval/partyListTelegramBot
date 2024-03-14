@@ -20,4 +20,23 @@ public class Customer {
 
     @DBRef
     private List<Offer> offers;
+
+    @Override
+    public String toString() {
+        String offersText = "";
+        for (Offer offer : offers) {
+            offersText += "     " + offer.toString() + "\n";
+        }
+        if (lastName == null) {
+            return firstName + " (@" + username + ") " +
+                    "хочет предложить:\n" + offersText;
+        } else if (username == null) {
+            return firstName + " " + lastName +
+                    "хочет предложить:\n" + offersText;
+        } else {
+            return firstName + " " + lastName + " (@" + username + ") " +
+                    "хочет предложить:\n" + offersText;
+        }
+
+    }
 }

@@ -11,4 +11,9 @@ public class Offer {
     private String id;
 
     private String text;
+
+    @Override
+    public String toString() {
+        return text;
+    }
 }

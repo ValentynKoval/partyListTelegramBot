@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 public class OfferService {
     private final OfferRepository offerRepository;
 
-    public void saveNewOffer(OfferDto offerDto) {
+    public Offer saveNewOffer(OfferDto offerDto) {
         Offer offer = new Offer();
         offer.setText(offerDto.getText());
-        offerRepository.save(offer);
+        return offerRepository.save(offer);
     }
 }
