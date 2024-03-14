@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/listForParty-0.0.1-SNAPSHOT.jar /app/listForParty.jar
 
 # Expose the port your application runs on (if necessary)
-# EXPOSE 8080
+EXPOSE 8080
 
 # Specify any environment variables required by your application (if necessary)
 # ENV ENV_VARIABLE_NAME=value
