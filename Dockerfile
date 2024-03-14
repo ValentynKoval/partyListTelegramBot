@@ -4,7 +4,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17
-COPY --from=build app/target/flowerista-shop-0.0.1-SNAPSHOT.jar flowerista-shop.jar
+COPY --from=build app/target/listForParty-0.0.1-SNAPSHOT.jar telegram-bot.jar
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","listForParty-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","telegram-bot.jar"]
