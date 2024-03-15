@@ -45,7 +45,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case "/show_wishes":
                     showWishes(chatId);
                     break;
-                case "show_products_list":
+                case "/show_products_list":
                     sendMessage(chatId, "--------СПИСОК--------\n" + productService.findAll());
                     break;
                 default:
