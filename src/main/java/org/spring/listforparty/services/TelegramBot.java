@@ -42,10 +42,10 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case "/start":
                     startCommandReceived(chatId, "@" + update.getMessage().getChat().getUserName());
                     break;
-                case "/showWishes":
+                case "/show_wishes":
                     showWishes(chatId);
                     break;
-                case "/showProductsList":
+                case "show_products_list":
                     sendMessage(chatId, "--------СПИСОК--------\n" + productService.findAll());
                     break;
                 default:
